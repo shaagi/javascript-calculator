@@ -129,30 +129,4 @@ deleteButton.addEventListener('click', button => {
 
 const counterElement = document.querySelector('[data-counter-var]')
 const counterTriggerButton = document.querySelector('[data-trigger-counter]')
-counterTriggerButton.addEventListener('click', button => {
-    // var myVar;
-    // myVar = 
-    setInterval(incrementCounter, 1000)
-})
 
-
-
-function incrementCounter() {
-    if (counterElement.innerText == '') {
-        console.log('here')
-        counterElement.innerText = 0
-    } else {  
-        counterElement.innerText = parseFloat(counterElement.innerText) + parseFloat(1)
-        test(logSomething)
-    }
-}
-
-function test(myCallback) {
-    console.log('log this every second');
-    let num = counterElement.innerText;
-    myCallback(num);
-}
-
-function logSomething(some) {
-    console.log('callback worked: ' + some);
-}
