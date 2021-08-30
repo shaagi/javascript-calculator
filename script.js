@@ -86,6 +86,48 @@ class Calculator {
     }
 }
 
+myFunc = () => {
+    console.log('something');
+
+    var data = [
+        {
+            mood: "happy",
+            fish: "robin",
+            colours: ["blue", "green"]
+        },
+        {
+            mood: "tired",
+            fish: "panther",
+            colours: ["green", "black", "orange", "blue"]
+        },
+        {
+            mood: "sad",
+            fish: "goldfish",
+            colours: ["green", "red"]
+        }
+    ]
+
+    // let myColours = [];
+
+    // for (i = 0; i < data.length; i++) {
+    //     myColours.push(data[i].colours);
+    // }
+    let myColours = data.map((e) => {
+        return e.colours
+    })
+
+    console.log(myColours);
+
+    let flattenedArray = [];
+    for (i = 0; i < myColours.length; i++) {
+        for (j = 0; j < myColours[i].length; j++) {
+            flattenedArray.push(myColours[i][j])
+        }
+    }
+    console.log('flattened array: ')
+    console.log(flattenedArray)
+}
+
 
 const numberButtons = document.querySelectorAll('[data-number]')
 const operationButtons = document.querySelectorAll('[data-operation]')
@@ -94,6 +136,12 @@ const deleteButton = document.querySelector('[data-delete]')
 const allClearButton = document.querySelector('[data-all-clear]')
 const previousOperandTextElement = document.querySelector('[data-previous-operand]')
 const currentOperandTextElement = document.querySelector('[data-current-operand]')
+
+const triggerButton = document.querySelector('[data-trigger]')
+triggerButton.addEventListener('click', button => {
+    myFunc()
+    
+})
 
 const calculator = new Calculator(previousOperandTextElement, 
     currentOperandTextElement)
@@ -125,7 +173,7 @@ allClearButton.addEventListener('click', button => {
 deleteButton.addEventListener('click', button => {
     calculator.delete()
     calculator.updateDisplay()
-})
+}) 
 
 const counterElement = document.querySelector('[data-counter-var]')
 const counterTriggerButton = document.querySelector('[data-trigger-counter]')
