@@ -107,11 +107,6 @@ myFunc = () => {
         }
     ]
 
-    // let myColours = [];
-
-    // for (i = 0; i < data.length; i++) {
-    //     myColours.push(data[i].colours);
-    // }
     let myColours = data.map((e) => {
         return e.colours
     })
@@ -140,7 +135,6 @@ const currentOperandTextElement = document.querySelector('[data-current-operand]
 const triggerButton = document.querySelector('[data-trigger]')
 triggerButton.addEventListener('click', button => {
     myFunc()
-    
 })
 
 const calculator = new Calculator(previousOperandTextElement, 
